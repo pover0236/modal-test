@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import ModalOne from './components/ModalOne';
+import { Button } from 'react-bootstrap';
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+export default function App() {
+  const [showModal1, setShow] = useState({visible:false});
+
+  const handleShow = () => {
+    setShow({visible:true});
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <Button variant='primary' onClick={()=> handleShow()}>Show Modal 1</Button>
+      </div>
+      <ModalOne showModal={showModal1}/>
     </div>
-  );
+  )
 }
-
-export default App;
